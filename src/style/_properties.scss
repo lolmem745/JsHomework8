@@ -1,0 +1,34 @@
+%flex_center_center {
+    @extend %flex_center;
+    align-items: center;
+}
+
+%flex_column_center_center {
+    @extend %flex_center_center;
+    flex-direction: column;
+}
+
+%flex_wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+%flex_column {
+    display: flex;
+    flex-direction: column;
+}
+
+%flex_ai_center {
+    display: flex;
+    align-items: center;
+}
+
+%flex_center {
+    display: flex;
+    justify-content: center;
+}
+
+%flex_sb {
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,12 @@
+@mixin text($color, $font-size, $font-weight) {
+    color: $color;
+    font-size: $font-size;
+    font-weight: $font-weight;
+}
+
+@mixin center($value) {
+    .center {
+        padding-left: calc(50vw - $value);
+        padding-right: calc(50vw - $value);
+    }
+}

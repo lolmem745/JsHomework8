@@ -1,0 +1,327 @@
+.banner {
+    background-color: #F1E4E6;
+    margin-bottom: 65px;
+
+    &__content {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__content div {
+        width: 50%;
+    }
+
+    &__left {
+        display: flex;
+        justify-content: end;
+    }
+
+    &__right {
+        display: flex;
+        justify-content: start;
+    }
+
+    &__tagline {
+        display: flex;
+        align-items: center;
+    }
+
+    &__text__box {
+        padding-left: 12.5%;
+        display: flex;
+        gap: 16px;
+    }
+
+    &__text {
+        min-width: 377px;
+        display: flex;
+
+        h1 {
+            @include text(#222, 32px, 700);
+        }
+
+        b {
+            @include text(#222, 48px, 900);
+        }
+
+        span {
+            @include text(#F16D7F, 32px, 700);
+        }
+    }
+}
+
+.sub_nav {
+    @extend %flex_center_center;
+    min-height: 148px;
+    background-color: #F8F3F4;
+
+    &__content {
+        width: 100vw;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+
+        &__left {
+            h1 {
+                @include text($pinkColor, 24px, 400);
+            }
+        }
+
+        &__right {
+            padding-right: 16px;
+
+            &__breadcrumb {
+                display: flex;
+                list-style-type: none;
+                gap: 4px;
+                align-items: baseline;
+
+                &__item_link {
+                    &:not(:last-child) {
+                        &>a{
+                        @include text($greyColor, 14px, 300);}
+    
+                        &::after {
+                            content: ' /';
+                            color: $greyColor;
+                        }
+    
+                        &:hover a{
+                            -webkit-text-stroke: 1px;
+                            -webkit-text-stroke-width: 1px;
+                            -webkit-text-stroke-color: $pinkColor;
+                        }
+                    }
+    
+                    &:last-child>a {
+                        @include text($pinkColor, 14px, 700);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.advantages {
+    background-color: #222224;
+    @extend %flex_wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: baseline;
+    gap: 30px;
+    min-height: 341px;
+}
+
+.contact {
+    min-height: 448px;
+    position: relative;
+    @extend %flex_center_center;
+    background: url("img/contact/background.jpg") bottom center no-repeat;
+    background-size: cover;
+
+    .background__fill {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: rgba(244, 244, 244, 0.70);
+        z-index: 2;
+        top: 0;
+    }
+
+    &__content {
+        width: 100vw;
+        @extend %flex_wrap;
+        justify-content: space-between;
+        align-items: baseline;
+        z-index: 3;
+    }
+
+    .manager {
+        &__items {
+            @extend %flex_column_center_center;
+            gap: 30px;
+            width: 360px;
+
+            img:hover {
+                animation: face 1.5s ease-in-out infinite both;
+            }
+
+            p {
+                text-align: center;
+                @include text(#222224, 20px, 400);
+            }
+        }
+    }
+
+    .subscribe {
+        @extend %flex_column_center_center;
+        gap: 32px;
+
+        &__text {
+            min-width: 557px;
+            text-align: center;
+
+            h2 {
+                @include text(#222224, 24px, 700);
+                line-height: 167.2%;
+            }
+
+            p {
+                @include text(#222224, 18px, 400);
+                line-height: 167.2%;
+            }
+        }
+
+        &__input {
+            width: 256px;
+            height: 49px;
+            border: none;
+            padding-left: 22px;
+            background-color: #E1E1E1;
+            box-sizing: border-box;
+            border-top-left-radius: 22px;
+            border-bottom-left-radius: 22px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &__button {
+            width: 100px;
+            height: 49px;
+            border: none;
+            box-sizing: border-box;
+            background-color: #F16D7F;
+            border-top-right-radius: 22px;
+            border-bottom-right-radius: 22px;
+            @include text(#FFF, 14px, 400);
+
+            &:hover {
+                cursor: pointer;
+                background-image: linear-gradient(#c61e40, #F16D7F);
+            }
+
+            &:active {
+                transform: translateY(1.5px)
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .banner {
+        &__left>img {
+            max-height: 368px;
+        }
+
+        &__text__box {
+            padding-left: 39px;
+        }
+
+        &__text {
+            min-width: 283px;
+
+            b {
+                font-size: 44px;
+            }
+
+            h1,
+            span {
+                font-size: 24px;
+            }
+        }
+    }
+    
+
+    .advantages {
+        flex-direction: column;
+        align-items: center;
+        gap: 49px;
+        padding-top: 48px;
+        padding-bottom: 64px;
+    }
+
+    .contact {
+        &__content {
+            justify-content: center;
+            gap: 64px;
+            padding-top: 48px;
+            padding-bottom: 140px;
+        }
+
+        .subscribe {
+            gap: 27px;
+        }
+    }
+
+}
+
+@media (max-width: 767px) {
+    .banner {
+        margin-top: 75px;
+        &__content {
+            justify-content: start;
+            min-height: 363px;
+        }
+
+        &__left {
+            display: none;
+        }
+
+        &__text__box {
+            gap: 15px;
+            align-items: center;
+            padding-left: 56px;
+
+            &>img {
+                max-height: 61px;
+            }
+        }
+
+        &__text {
+            min-width: 236px;
+
+            b {
+                font-size: 38px;
+            }
+
+            h1,
+            span {
+                font-size: 20px;
+            }
+        }
+    }
+
+    .sub_nav {
+        margin-top: 75px;
+        &__content {
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 32px;
+            padding-top: 24px;
+            padding-bottom: 46px;
+        }
+    }
+
+    .advantages {
+        gap: 46px;
+        padding-bottom: 81px;
+    }
+
+    .contact {
+        &__content {
+            gap: 59px;
+            padding-bottom: 109px;
+        }
+
+        .subscribe {
+            gap: 22px;
+
+            &__text {
+                min-width: 341px;
+            }
+        }
+    }
+}

@@ -1,0 +1,211 @@
+.header {
+    box-sizing: border-box;
+    min-height: 75px;
+    position: relative;
+
+    &__box {
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        z-index: 2;
+        height: 100%;
+        @extend %flex_center_center;
+    }
+
+    &__bg {
+        width: 100vw;
+        background-color: #222;
+        min-height: 75px;
+        @extend %flex_ai_center;
+    }
+
+    .menu {
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+
+        &__left {
+            display: flex;
+            align-items: end;
+            gap: 41px;
+            // padding-left: 16px;
+        }
+
+        &__right {
+            display: flex;
+            align-items: end;
+            gap: 41px;
+            padding-right: 16px;
+        }
+
+        &__link:hover {
+            .menu__img {
+                filter: contrast(2);
+                scale: 1.05;
+
+                &>path {
+                    fill: $pinkColor;
+                }
+            }
+        }
+    }
+
+    .catalog {
+        &__checkbox {
+            position: absolute;
+            top: -66666px;
+
+            &:not(:checked)~.dropdown {
+                top: -700px;
+                transition: top 0.3s;
+            }
+
+            &:checked~.dropdown {
+                top: 75px;
+                transition: top 0.3s;
+            }
+        }
+
+        &__dropdownLabel {
+            cursor: pointer;
+        }
+
+        &__categories {
+            @extend %flex_column;
+            gap: 20px;
+        }
+
+        &__name {
+            @include text(#F16D7F, 14px, 400);
+            margin-bottom: 12px;
+        }
+
+        &__list {
+            list-style-type: disc;
+            list-style-position: inside;
+            color: #fff;
+            @extend %flex_column;
+            gap: 11px;
+
+            a {
+                @include text(#6F6E6E, 14px, 400);
+                padding: 5px;
+            }
+
+            li:hover a {
+                background-color: #F16D7F;
+                color: #fff;
+            }
+        }
+    }
+
+    .dropdown {
+        position: absolute;
+        background: #fff;
+        padding: 32px 74px 32px 32px;
+        z-index: -1;
+        box-sizing: border-box;
+
+        &__title {
+            @include text(#000, 14px, 700);
+            margin-bottom: 24px;
+        }
+    }
+
+    .basket__link {
+        position: relative;
+
+        &::after {
+            content: '';
+            @include text(#FFF, 12px, 400);
+            width: 19px;
+            height: 19px;
+            background-color: #F16D7F;
+            border-radius: 90%;
+            @extend %flex_center_center;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .header {
+        .menu {
+            &__left {
+                padding-left: 16px;
+            }
+
+            &__right {
+                padding-right: 32px;
+            }
+
+            .dropdown__menu {
+                padding: 20px 74px 20px 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .header {
+        position: fixed;
+        z-index: 100;
+
+        .menu__right>a {
+            display: none;
+        }
+
+        .catalog {
+            &__categories {
+                gap: 32px;
+            }
+
+            &__name {
+                margin-bottom: 8px;
+            }
+
+            &__list {
+                list-style: none;
+                gap: 5px;
+            }
+        }
+
+        .dropdown {
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            padding: 32px 16px;
+            position: fixed;
+
+            &>h5 {
+                margin-bottom: 36px;
+                text-align: center;
+                font-size: 18px;
+            }
+
+            .catalog {
+                &__categories {
+                    flex-direction: row;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                }
+
+                &__block {
+                    flex-grow: 1;
+
+                    &:nth-child(1) {
+                        order: 3;
+                    }
+
+                    & * {
+                        text-align: center;
+                        font-size: 18px;
+
+                    }
+                }
+            }
+        }
+    }
+}

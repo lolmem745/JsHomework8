@@ -1,0 +1,70 @@
+.footer {
+    background-color: #222224;
+    min-height: 79px;
+    @extend %flex_center_center;
+
+    &__container {
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__left>p {
+        @include text(#FBFBFB, 16px, 400);
+    }
+
+    &__right {
+        @extend %flex_center_center;
+        gap: 7.29px;
+    }
+
+    &__link {
+        width: 32px;
+        height: 32px;
+        background-color: #FFF;
+        @extend %flex_center_center;
+
+        &:hover {
+            background-color: #F16D7F;
+
+            .label>path {
+                fill: #FFF;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .footer {
+        &__left {
+            padding-left: 16px;
+        }
+
+        &__right {
+            padding-right: 16px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .footer {
+        min-height: 143px;
+        align-items: end;
+
+        &__container {
+            flex-direction: column-reverse;
+        }
+
+        &__left {
+            padding-left: 0px;
+            margin-bottom: 9px;
+        }
+
+        &__right {
+            padding-right: 0px;
+            margin-bottom: 40px;
+        }
+    }
+}

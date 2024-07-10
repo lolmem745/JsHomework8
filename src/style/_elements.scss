@@ -1,0 +1,57 @@
+.advantage {
+    display: flex;
+
+    &__link {
+        @extend %flex_column_center_center;
+
+        img {
+            margin-bottom: 19px;
+        }
+
+        h3 {
+            @include text(#FBFBFB, 20px, 400);
+            margin-bottom: 16px;
+        }
+
+        p {
+            text-align: center;
+            @include text(#FBFBFB, 14px, 300);
+        }
+
+        &:hover {
+            .advantage_img {
+                filter: contrast(30);
+                scale: 1.2;
+            }
+
+            scale: 1.02;
+        }
+    }
+}
+
+
+.pink-button {
+    box-sizing: border-box;
+    @include text($whiteColor, 14px, 400);
+    @extend %flex_center_center;
+    gap: 20px;
+    padding: 16px 29px;
+    background-color: $pinkColor;
+    border: 1px solid $whiteColor;
+    color: $whiteColor;
+
+    &:hover {
+        cursor: pointer;
+        color: $pinkColor;
+        background: $whiteColor;
+        border: 1px solid $pinkColor;
+
+        .svg>path {
+            fill: $pinkColor;
+        }
+    }
+
+    &:active {
+        transform: translateY(2px);
+    }
+}

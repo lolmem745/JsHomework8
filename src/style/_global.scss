@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    scrollbar-width: 0px;
+}
+
+*::-webkit-scrollbar {
+    width: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    font-family: Lato;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+@include center(570px);
+
+details>summary {
+    cursor: pointer;
+}
+
+summary {
+    display: block;
+}
+
+ol,
+li {
+    list-style: none;
+}
+
+input[type="number"] {
+    font-family: Lato;
+    @include text($greyColor, 18px, 400);
+}
+
+button {
+    font-family: Lato;
+}
+
+textarea {
+    font-family: Lato;
+}
+
+@media (max-width: 1024px) {
+
+    @include center(368px);
+    
+}
+
+@media (max-width: 767px) {
+    @include center(187px);
+}
